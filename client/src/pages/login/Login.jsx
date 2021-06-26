@@ -1,13 +1,13 @@
-import axios from "axios";
-import { useContext, useRef } from "react";
-import { Link } from "react-router-dom";
-import { Context } from "../../context/Context";
 import "./login.css";
+import { Link } from "react-router-dom";
+import { useContext, useRef } from "react";
+import { Context } from "../../contextAPI/Context";
+import axios from "axios";
 
-export default function Login() {
+function Login() {
   const userRef = useRef();
   const passwordRef = useRef();
-  const { dispatch, isFetching } = useContext(Context);
+  const { dispatch, isFetch } = useContext(Context);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,37 +19,33 @@ export default function Login() {
       });
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
     } catch (err) {
-      dispatch({ type: "LOGIN_FAILURE" });
+      dispatch({ type: "LOGIN_FAIL" });
     }
   };
 
   return (
     <div className="login">
       <span className="loginTitle">Login</span>
-      <form className="loginForm" onSubmit={handleSubmit}>
+      <form action="" className="loginForm" onSubmit={handleSubmit}>
         <label>Username</label>
-        <input
-          type="text"
-          className="loginInput"
-          placeholder="Enter your username..."
-          ref={userRef}
-        />
+        <input type="text" placeholder="Enter Your Username..." ref={userRef} />
         <label>Password</label>
         <input
           type="password"
-          className="loginInput"
-          placeholder="Enter your password..."
+          placeholder="Enter Your Password..."
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit" disabled={isFetching}>
+        <button className="loginButton" type="submit" disabled={isFetch}>
           Login
         </button>
       </form>
       <button className="loginRegisterButton">
-        <Link className="link" to="/register">
+        <Link to="/register" className="link">
           Register
         </Link>
       </button>
     </div>
   );
 }
+
+export default Login;

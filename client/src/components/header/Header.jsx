@@ -1,17 +1,19 @@
 import "./header.css";
 
-export default function Header() {
+function Header() {
   return (
     <div className="header">
       <div className="headerTitles">
-        <span className="headerTitleSm">React & Node</span>
-        <span className="headerTitleLg">Blog</span>
+        <div className="headerTitleSm">Welcome to </div>
+        <div className="headerTitleLg">Blog</div>
       </div>
       <img
         className="headerImg"
-        src="https://images.pexels.com/photos/1167355/pexels-photo-1167355.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+        src="https://images.pexels.com/photos/1647962/pexels-photo-1647962.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260"
         alt=""
       />
     </div>
   );
 }
+
+export default Header;
