@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import "./write.css";
 import axios from "axios";
 import { Context } from "../../contextAPI/Context";
+import Footer from "../../components/footer/Footer";
 
 export default function Write() {
   const [title, setTitle] = useState("");
@@ -67,6 +68,7 @@ export default function Write() {
           Post
         </button>
       </form>
+      <Footer />
     </div>
   );
 }

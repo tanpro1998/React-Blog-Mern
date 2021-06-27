@@ -1,6 +1,7 @@
 import Header from "../../components/header/Header";
 import Posts from "../../components/posts/Posts";
 import Sidebar from "../../components/sidebar/Sidebar";
+import Footer from "../../components/footer/Footer"
 import "./home.css";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -24,6 +25,7 @@ function Home() {
         <Posts posts={posts} />
         <Sidebar />
       </div>
+        <Footer />
     </>
   );
 }
